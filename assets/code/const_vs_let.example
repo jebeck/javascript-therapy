@@ -1,0 +1,5 @@
+const MOON_LANDING_YEAR = 1969;
+
+for (let i = 45; i > 0; ++i) {
+  console.log(presidents[i]); // 🍊
+}

@@ -248,7 +248,7 @@ aws4@^1.2.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.5.0.tgz#0a29ffb79c31c9e712eeb087e8e7a64b4a56d755"
 
-babel-cli@^6.16.0, babel-cli@^6.5.1:
+babel-cli@^6.16.0, babel-cli@^6.18.0, babel-cli@^6.5.1:
   version "6.22.2"
   resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.22.2.tgz#3f814c8acf52759082b8fedd9627f938936ab559"
   dependencies:
@@ -277,7 +277,7 @@ babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-babel-core@^6.0.0, babel-core@^6.18.0, babel-core@^6.22.0, babel-core@^6.22.1:
+babel-core@^6.0.0, babel-core@^6.18.0, babel-core@^6.20.0, babel-core@^6.22.0, babel-core@^6.22.1:
   version "6.22.1"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.22.1.tgz#9c5fd658ba1772d28d721f6d25d968fc7ae21648"
   dependencies:
@@ -895,7 +895,7 @@ babel-preset-es2015@^6.0.0, babel-preset-es2015@^6.18.0:
     babel-plugin-transform-es2015-unicode-regex "^6.22.0"
     babel-plugin-transform-regenerator "^6.22.0"
 
-babel-preset-react@^6.0.0, babel-preset-react@^6.3.13:
+babel-preset-react@^6.0.0, babel-preset-react@^6.16.0, babel-preset-react@^6.3.13:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-preset-react/-/babel-preset-react-6.22.0.tgz#7bc97e2d73eec4b980fb6b4e4e0884e81ccdc165"
   dependencies:
@@ -1709,9 +1709,9 @@ cycle@1.0.x:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/cycle/-/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
 
-d3-array@1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.0.2.tgz#174237bf356a852fadd6af87743d928631de7655"
+d3-array@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.0.tgz#147d269720e174c4057a7f42be8b0f3f2ba53108"
 
 d3-collection@1:
   version "1.0.2"
@@ -1739,11 +1739,11 @@ d3-path@1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/d3-path/-/d3-path-1.0.3.tgz#60103d0dea9a6cd6ca58de86c6d56724002d3fde"
 
-d3-scale@^1.0.0:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-1.0.4.tgz#50e28bf6a193b706745528515ed9b3d44205a033"
+d3-scale@^1.0.0, d3-scale@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-1.0.6.tgz#bce19da80d3a0cf422c9543ae3322086220b34ed"
   dependencies:
-    d3-array "1"
+    d3-array "^1.2.0"
     d3-collection "1"
     d3-color "1"
     d3-format "1"
@@ -3226,6 +3226,10 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+
 loader-runner@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
@@ -4536,6 +4540,16 @@ react-in-markdown@^0.0.2:
   resolved "https://registry.yarnpkg.com/react-in-markdown/-/react-in-markdown-0.0.2.tgz#053c669ec23f355aa83e5a3a3ab1e2eb098012d2"
   dependencies:
     react "^15.3.2"
+
+react-mathjax@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-mathjax/-/react-mathjax-0.1.1.tgz#5fc3951773da89d0b5192235b23c06da3ccea152"
+  dependencies:
+    babel-cli "^6.18.0"
+    babel-core "^6.20.0"
+    babel-preset-es2015 "^6.18.0"
+    babel-preset-react "^6.16.0"
+    load-script "^1.0.0"
 
 react-proxy@^1.1.7:
   version "1.1.8"
