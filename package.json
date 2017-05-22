@@ -18,6 +18,7 @@
     "react-dom": "15.4.2",
     "react-mathjax": "^0.1.1",
     "spectacle": "^2.0.0",
+    "spectacle-code-slide": "^0.4.0",
     "xterm": "^2.6.0"
   },
   "devDependencies": {

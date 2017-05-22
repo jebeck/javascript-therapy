@@ -1,0 +1,5 @@
+function* yo(name) {
+  yield `Yo, ${name}`;
+}
+const it = yo('Sam');
+console.log(it.next().value);

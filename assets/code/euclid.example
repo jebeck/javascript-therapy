@@ -1,0 +1,11 @@
+const A = 5;
+const B = 5;
+A === B; // true
+
+const C = 3;
+const D = 3;
+C === D; // true
+
+const AC = A + C; // 8
+const BD = B + D; // 8
+AC === BD; // true

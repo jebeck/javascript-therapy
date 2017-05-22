@@ -1,0 +1,3 @@
+function yo(name) {
+  console.log(`Yo, ${name}`);
+}

@@ -1,0 +1,3 @@
+const waveTo = function* (name) {
+  yield `👋, ${name}`;
+}

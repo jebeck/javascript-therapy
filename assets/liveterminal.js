@@ -18,15 +18,16 @@ export default class extends PureComponent {
     const socketURL = `${protocol}${location.hostname}:${port}/websocket`;
     const sock = new WebSocket(socketURL);
     sock.addEventListener("open", () => {
-      term.terminadoAttach(sock);
+      term.terminadoAttach(sock, true, true);
+      term.clear();
     });
-    term.open(document.getElementById("terminal-container"));
+    term.open(document.getElementById("terminal-container"), false);
     term.fit();
   }
 
   render() {
     return (
-      <div id="terminal-container" style={{ height: "600px" }} />
+      <div id="terminal-container" style={{ height: "500px" }} />
     );
   }
 }
