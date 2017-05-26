@@ -1,0 +1,64 @@
+const flex = {
+  display: "flex",
+  flexWrap: "wrap",
+};
+
+const monkey = {
+  padding: "1rem",
+};
+
+function* gen() {
+  while (true) {
+    yield Math.floor(
+      Math.random() * 10 + 1
+    );
+  }
+}
+
+class View extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      n: null,
+    };
+  }
+
+  componentDidMount() {
+    const it = gen();
+    this.int = setInterval(() => {
+      this.setState(
+        () => ({ n: it.next().value })
+      )
+    }, 250);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.int);
+  }
+
+  render() {
+    const { n } = this.state;
+    const monkeys = [];
+    let monkeysEl;
+    if (n !== null) {
+      for (let i = 0; i < n; ++i) {
+        monkeys.push(
+          <div style={monkey} key={i}>
+            {String.fromCodePoint(0x1F412)}
+          </div>
+        );
+      }
+      monkeysEl = (
+        <div style={flex}>{monkeys}</div>
+      );
+    }
+    return (
+      <div>
+        <h3>monkeys</h3>
+        {monkeys.length ? monkeysEl : null}
+      </div>
+    );
+  }
+}
+render(<View />, mountNode);

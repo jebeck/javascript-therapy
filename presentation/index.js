@@ -9,6 +9,7 @@ import {
   Cite,
   Code,
   CodePane,
+  ComponentPlayground,
   Deck,
   Fill,
   // Fit,
@@ -24,6 +25,7 @@ import {
   Text
 } from "spectacle";
 import CodeSlide from 'spectacle-code-slide';
+import Terminal from 'spectacle-terminal';
 
 import LiveTerminal from "../assets/liveterminal.js";
 import ReplIt from "../assets/replit.js";
@@ -50,6 +52,7 @@ const images = {
   prettier: require("../assets/img/prettier.svg"),
   scullyEyeroll: require("../assets/img/scully_eyeroll.gif"),
   tiredPuppy: require("../assets/img/tired_puppy.gif"),
+  troubleTyping: require("../assets/img/trouble_typing.gif"),
   whiningNotAngsting: require("../assets/img/whining_not_angsting.gif"),
   yo: require("../assets/img/yo.png")
 };
@@ -577,15 +580,48 @@ export default class Presentation extends React.Component {
         <Slide bgColor="tertiary">
           <Image src={images.amazed} width={700}/>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">
-            TODO: CodeSlide illustration of run-to-completion
-          </Code>
+        <CodeSlide
+          lang="js"
+          code={require("raw-loader!../assets/code/run_to_completion.example")}
+          ranges={[{
+            loc: [0, 0],
+            title: "run to completion"
+          }, {
+            loc: [0, 5]
+          }, {
+            loc: [6, 7]
+          }]}
+        />
+        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }} transition={["slide"]}>
+          <Heading size={2}>run to completion</Heading>
+          <Terminal
+            output={[
+              "> wisdom();",
+              "There's always\n💰 💸 💰 💸 💰\nin the 🍌 stand."
+            ]}
+          />
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">
-            TODO: CodeSlide illustration of pausing at `yield`s
-          </Code>
+        <CodeSlide
+          lang="js"
+          code={require("raw-loader!../assets/code/yielding_pausing.example")}
+          ranges={[{
+            loc: [0, 0],
+            title: "yielding is pausing"
+          }, {
+            loc: [1, 2],
+            title: "yes, really"
+          }, {
+            loc: [0, 5]
+          }]}
+        />
+        <Slide bgColor="tertiary">
+          <Image src={images.troubleTyping} width={850} />
+          <Text lineHeight={1.5} textColor="secondary">A Tom Hanks in the wild trying to type a <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">while (true)</Code> loop</Text>
+        </Slide>
+        <Slide bgColor="tertiary">
+          <ComponentPlayground
+            code={require("raw-loader!../assets/code/WhileTrue.playground")}
+          />
         </Slide>
       </Deck>
     );

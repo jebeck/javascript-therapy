@@ -1,0 +1,7 @@
+function wisdom() {
+  console.log("There's always");
+  console.log("💰 💸 💰 💸 💰");
+  console.log("in the 🍌 stand.");
+}
+
+wisdom();
