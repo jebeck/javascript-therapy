@@ -2,7 +2,6 @@
 
 var path = require("path");
 var express = require("express");
-var proxy = require("http-proxy-middleware");
 var webpack = require("webpack");
 var config = require("./webpack.config");
 
@@ -18,13 +17,9 @@ app.use(require("webpack-dev-middleware")(compiler, {
 
 app.use(require("webpack-hot-middleware")(compiler));
 
-app.use('/static', express.static(path.join(__dirname, 'static')));
-
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
-
-app.use(proxy("ws://localhost:8010/websocket"));
 
 app.listen(serverPort, "localhost", function (err) {
   if (err) {

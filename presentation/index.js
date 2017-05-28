@@ -43,7 +43,6 @@ import createTheme from "spectacle/lib/themes/default";
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
-require("xterm/dist/xterm.css");
 
 const cursor = {
   show: false,
