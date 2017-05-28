@@ -1,0 +1,22 @@
+function* gen() {
+  while (true) {
+    yield Math.floor(
+      Math.random() * 10 + 1
+    );
+  }
+}
+
+class View extends React.Component {
+  componentDidMount() {
+    const it = gen();
+    this.int = setInterval(() => {
+      this.setState(
+        () => ({ n: it.next().value })
+      )
+    }, 250);
+  }
+
+  render() {
+    ...
+  }
+}

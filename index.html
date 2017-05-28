@@ -10,6 +10,17 @@
   <script src="static/xterm.js"></script>
   <script src="static/fit.js"></script>
   <script src="static/terminado.js"></script>
+  <style type="text/css">
+    .Typist::before {
+      content: '> ';
+    }
+    .chatLog:nth-child(odd)::before {
+      content: '[🤖]: ';
+    }
+    .chatLog:nth-child(even)::before {
+      content: '[rebel]: ';
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>

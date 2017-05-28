@@ -24,11 +24,15 @@ import {
   Slide,
   Text
 } from "spectacle";
-import CodeSlide from 'spectacle-code-slide';
-import Terminal from 'spectacle-terminal';
+import CodeSlide from "spectacle-code-slide";
+import Terminal from "spectacle-terminal";
+import Typist from "react-typist";
 
-import LiveTerminal from "../assets/liveterminal.js";
-import ReplIt from "../assets/replit.js";
+import Chat from "../assets/components/chat.js";
+import chatterer from "../assets/chatGenerators/chatterbot1.js";
+import elizaMaker from "../assets/chatGenerators/eliza/";
+const eliza = elizaMaker();
+import ReplIt from "../assets/components/replit.js";
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
@@ -40,6 +44,16 @@ import createTheme from "spectacle/lib/themes/default";
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 require("xterm/dist/xterm.css");
+
+const cursor = {
+  show: false,
+  blink: false,
+  element: "|",
+  hideWhenDone: false,
+  hideWhenDoneDelay: 1000
+};
+
+const TERMINAL_PROMPT = (<div style={{ color: "cyan" }}>deepthought:~ rebel$ node</div>);
 
 const images = {
   amazed: require("../assets/img/amazed.gif"),
@@ -510,18 +524,19 @@ export default class Presentation extends React.Component {
             loc: [4, 5]
           }]}
         />
-        <Slide
-          bgColor="tertiary"
-          notes={`
-            Commands:
-              - node
-              - const yo = require('./ex/yo.js');
-              - const it = yo('Rebels');
-              - console.log(it.next());
-              - console.log(it.next());
-          `}
-        >
-          <LiveTerminal />
+        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }}>
+          <Heading size={2}>generator objects are iterators</Heading>
+          <Terminal
+            output={[
+              TERMINAL_PROMPT,
+              <Typist cursor={cursor} key={1}>const it = yo('Rebels');</Typist>,
+              <Typist cursor={cursor} key={2}>console.log(it.next());</Typist>,
+              <div key={3} style={{ color: "yellow" }}>{"{ value: 'Yo, Rebels', done: false }"}</div>,
+              <Typist cursor={cursor} key={4}>console.log(it.next());</Typist>,
+              <div key={5} style={{ color: "yellow" }}>{"{ value: undefined, done: true }"}</div>
+            ]}
+            showFirstEntry
+          />
         </Slide>
         <Slide bgColor="tertiary">
           <Heading size={2}>#2: accepts a value</Heading>
@@ -558,21 +573,39 @@ export default class Presentation extends React.Component {
             loc: [2, 6]
           }]}
         />
-        <Slide
-          bgColor="tertiary"
-          notes={`
-            Commands:
-              - const yld = require('./ex/yield.js);
-              - const it1 = yld('Rebels');
-              - console.log(it.next().value);
-              - console.log(it.next().value);
-              - const it2 = yld('Rebels');
-              - console.log(it.next().value);
-              - console.log(it.next('Hi').value);
-              - console.log(it.next().value);
-          `}
-        >
-          <LiveTerminal />
+        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }}>
+          <Heading size={2}>no value given</Heading>
+          <Terminal
+            output={[
+              TERMINAL_PROMPT,
+              <Typist cursor={cursor} key={1}>const it1 = pb('Rebels');</Typist>,
+              <Typist cursor={cursor} key={2}>console.log(it1.next().value);</Typist>,
+              <div key={3} style={{ color: "yellow" }}>Hi, Rebels!</div>,
+              <Typist cursor={cursor} key={4}>console.log(it1.next());</Typist>,
+              <div key={5} style={{ color: "yellow" }}>{"{ value: undefined, done: true }"}</div>
+            ]}
+            showFirstEntry
+          />
+          <ReplIt href="https://repl.it/IUte/latest" />
+        </Slide>
+        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }}>
+          <Heading size={2}>value given!</Heading>
+          <Terminal
+            output={[
+              TERMINAL_PROMPT,
+              <Typist cursor={cursor} key={6}>const it2 = pb('Rebels');</Typist>,
+              <Typist cursor={cursor} key={7}>console.log(it2.next().value);</Typist>,
+              <div key={8} style={{ color: "yellow" }}>Hi, Rebels!</div>,
+              <Typist cursor={cursor} key={9}>console.log(it2.next('Hi').value);</Typist>,
+              <div key={10} style={{ color: "yellow" }}>Hi</div>,
+              <Typist cursor={cursor} key={11}>console.log(it2.next().value);</Typist>,
+              <div key={12} style={{ color: "yellow" }}>💩 // RUDE!</div>,
+              <Typist cursor={cursor} key={13}>console.log(it2.next());</Typist>,
+              <div key={14} style={{ color: "yellow" }}>{"{ value: undefined, done: true }"}</div>
+            ]}
+            showFirstEntry
+          />
+          <ReplIt href="https://repl.it/IVVg/latest" />
         </Slide>
         <Slide bgColor="tertiary">
           <Heading size={2}>#3: pauses the generator function</Heading>
@@ -596,10 +629,23 @@ export default class Presentation extends React.Component {
           <Heading size={2}>run to completion</Heading>
           <Terminal
             output={[
-              "> wisdom();",
-              "There's always\n💰 💸 💰 💸 💰\nin the 🍌 stand."
+              TERMINAL_PROMPT,
+              <Typist key={1} cursor={cursor}>wisdom();</Typist>,
+              <div key={2}>
+                <div style={{ color: "yellow" }}>
+                  There's always
+                </div>
+                <div style={{ color: "yellow" }}>
+                  💰 💸 💰 💸 💰
+                </div>
+                <div style={{ color: "yellow" }}>
+                  in the 🍌 stand.
+                </div>
+              </div>
             ]}
+            showFirstEntry
           />
+          <ReplIt href="https://repl.it/IVVm/latest" />
         </Slide>
         <CodeSlide
           lang="js"
@@ -618,10 +664,88 @@ export default class Presentation extends React.Component {
           <Image src={images.troubleTyping} width={850} />
           <Text lineHeight={1.5} textColor="secondary">A Tom Hanks in the wild trying to type a <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">while (true)</Code> loop</Text>
         </Slide>
+        <CodeSlide
+          lang="js"
+          code={require("raw-loader!../assets/code/while_true.example")}
+          ranges={[{
+            loc: [0, 0],
+            title: "the proof"
+          }, {
+            loc: [0, 7]
+          }, {
+            loc: [9, 17]
+          }]}
+        />
         <Slide bgColor="tertiary">
           <ComponentPlayground
             code={require("raw-loader!../assets/code/WhileTrue.playground")}
           />
+          <ReplIt href="https://repl.it/IVVu/latest" />
+        </Slide>
+        <Slide bgColor="tertiary">
+          <Heading size={2}>three things</Heading>
+          <List textColor="white">
+            <Appear>
+              <ListItem>returns a value</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>accepts a value</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem><S type="bold">pauses</S> the generator function</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={2}>what are generators good for?</Heading>
+        </Slide>
+        <Slide bgColor="tertiary">
+          <Layout>
+            <Appear>
+              <Fill>
+                <Heading bgColor="white" lineHeight={2} size={3}>fn*</Heading>
+                <Text lineHeight={2} textSize="6rem">👻</Text>
+              </Fill>
+            </Appear>
+            <Fill/>
+            <Appear>
+              <Fill>
+                <Heading bgColor="black" lineHeight={2} size={3} textColor="white">main</Heading>
+                <Text lineHeight={2} textSize="6rem">😎</Text>
+              </Fill>
+            </Appear>
+          </Layout>
+        </Slide>
+        <CodeSlide
+          lang="js"
+          code={require("raw-loader!../assets/code/chatterbot_1.example")}
+          ranges={[{
+            loc: [0, 0],
+            title: "chatterbot #1"
+          }, {
+            loc: [1, 3]
+          }, {
+            loc: [4, 6]
+          }, {
+            loc: [10, 12]
+          }, {
+            loc: [6, 9]
+          }]}
+        />
+        <Slide bgColor="tertiary">
+          <Layout>
+            <Fill>
+              <Chat generator={chatterer} />
+            </Fill>
+          </Layout>
+          <ReplIt href="https://repl.it/IVXv/latest" />
+        </Slide>
+        <Slide>
+          <Layout>
+            <Fill>
+              <Chat generator={eliza} />
+            </Fill>
+          </Layout>
         </Slide>
       </Deck>
     );

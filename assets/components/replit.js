@@ -9,6 +9,7 @@ const ReplIt = (props) => {
       style={{ position: "absolute", bottom: "-20px", left: "40px" }}
       target="_blank"
       textColor="secondary"
+      textSize="2rem"
     >
       <S type="underline">try on repl.it</S>
     </Link>

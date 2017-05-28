@@ -45,7 +45,7 @@ class View extends React.Component {
       for (let i = 0; i < n; ++i) {
         monkeys.push(
           <div style={monkey} key={i}>
-            {String.fromCodePoint(0x1F412)}
+            🐒
           </div>
         );
       }
@@ -61,4 +61,5 @@ class View extends React.Component {
     );
   }
 }
+
 render(<View />, mountNode);
