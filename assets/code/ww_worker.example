@@ -1,0 +1,5 @@
+onmessage = (e) => {
+  const toPost = process(e.data);
+
+  postMessage(toPost);
+}

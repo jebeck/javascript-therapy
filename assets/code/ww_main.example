@@ -1,0 +1,8 @@
+
+const myWorker = new Worker('worker.js');
+
+myWorker.postMessage(data);
+
+myWorker.onmessage = (e) => {
+  doSomething(e.data);
+}

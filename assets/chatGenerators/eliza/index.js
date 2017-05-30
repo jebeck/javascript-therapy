@@ -271,8 +271,8 @@ module.exports = function createElizaChat(chatId) {
     return '';
   }
 
-  function getElizaText(i, input) {
-    if (i === 0) {
+  function getElizaText(input, initial) {
+    if (initial) {
       return elizaInitials[Math.floor(Math.random() * elizaInitials.length)];
     }
     const sanitizedParts = sanitizeInput(input).split('.');
@@ -327,14 +327,11 @@ module.exports = function createElizaChat(chatId) {
   }
 
   return function* elizaBot() {
-    let i = 0;
-    let input;
     // opening the conversation
-    input = yield getElizaText(i);
+    let input = yield getElizaText(null, true);
 
     while (!quit) {
-      ++i;
-      input = yield getElizaText(i, input);
+      input = yield getElizaText(input, false);
     }
   };
 };

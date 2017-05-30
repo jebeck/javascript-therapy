@@ -1,0 +1,10 @@
+handleSubmit(e) {
+  this.convo.push({
+    id: 'user', text: e.target.value
+  });
+  // get & push the bot's response
+  this.convo.push({
+    id: 'bot',
+    text: this.it.next(e.target.value).value
+  });
+}

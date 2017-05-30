@@ -1,0 +1,5 @@
+const convo = [
+  { id: 'bot', text: '🙃' },
+  { id: 'me', text: 'hi there' },
+  ...
+];

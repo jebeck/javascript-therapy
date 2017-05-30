@@ -1,0 +1,8 @@
+function* elizaBot() {
+  // opening the conversation
+  let input = yield getElizaText(null, true);
+
+  while (!quit) {
+    input = yield getElizaText(input);
+  }
+};

@@ -1,4 +1,4 @@
-const tellMeHowYouReallyFeel = () => {
+const tellMe = () => {
   console.log('Not writing `function`.');
   console.log('So amaze 🎉 Such wow.');
 };
