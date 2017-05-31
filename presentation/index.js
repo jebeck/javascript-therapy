@@ -76,11 +76,10 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  primary: "#56137A", // dark purple
-  secondary: "#15C66B", // light green
-  tertiary: "#044725", // dark green
-  quartenary: "#850BC6", // bright purple
-  white: "white"
+  primary: "cornsilk",
+  secondary: "#2C2F69",
+  tertiary: "#43467F",
+  quartenary: "#CECECE"
 }, {
   primary: "Eczar",
   secondary: "Lato"
@@ -89,15 +88,15 @@ const theme = createTheme({
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck progress="number" transition={["fade"]} transitionDuration={350} theme={theme}>
-        <Slide bgColor="primary">
-          <Heading size={1} fit lineHeight={2} textColor="white">
+      <Deck progress="bar" transition={["fade"]} transitionDuration={350} theme={theme}>
+        <Slide>
+          <Heading size={1} fit lineHeight={2}>
             JavaScript therapy
           </Heading>
           <Heading size={3} textColor="secondary">(with generators!)</Heading>
         </Slide>
-        <Slide bgColor="tertiary" padding={0} transition={["slide"]}>
-          <Heading fit size={2}>what I used to do</Heading>
+        <Slide padding={0}>
+          <Heading fit size={1}>what I used to do</Heading>
           <Context>
             <div>
               <Node>
@@ -111,11 +110,11 @@ export default class Presentation extends React.Component {
             </div>
           </Context>
         </Slide>
-        <Slide transition={["slide"]}>
+        <Slide>
           <Image src={images.jgl} height={IMG_HEIGHT}/>
         </Slide>
-        <Slide transition={["slide"]}>
-          <Heading fit size={2}>what I do now</Heading>
+        <Slide>
+          <Heading fit size={1}>what I do now</Heading>
           <Layout>
             <Appear>
               <Fill>
@@ -185,11 +184,11 @@ export default class Presentation extends React.Component {
             </Appear>
           </Layout>
         </Slide>
-        <Slide bgColor="primary" transition={["slide"]}>
-          <Code bgColor="rgba(255,255,255,0.625)" padding={25} textColor="quartenary" textSize="4em">{"¯\\_(ツ)_/¯"}</Code>
+        <Slide>
+          <Code bgColor="quartenary" padding={25} textColor="secondary" textSize="4em">{"¯\\_(ツ)_/¯"}</Code>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading size={2}>context</Heading>
+        <Slide>
+          <Heading size={1}>context</Heading>
           <List>
             <Appear>
               <ListItem>
@@ -210,81 +209,77 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Layout>
             <Fill>
-              <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">
-                redux-thunk
-              </Code>
+              <Code bgColor="quartenary" textColor="secondary" textSize="3.5rem">redux-thunk</Code>
             </Fill>
+            <Text textColor="secondary">v.</Text>
             <Fill>
-              <Text textColor="white">vs.</Text>
-            </Fill>
-            <Fill>
-              <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">
-                redux-saga
-              </Code>
+              <Code bgColor="quartenary" textColor="secondary" textSize="3.5rem">redux-saga</Code>
             </Fill>
           </Layout>
         </Slide>
         <Slide align="center flex-start" bgImage={images.tiredPuppy}>
-          <Heading fit size={1} textColor="quartenary">JavaScript fatigue</Heading>
+          <Heading fit size={1}>JavaScript fatigue</Heading>
         </Slide>
         <Slide align="center flex-end" bgImage={images.gollum}>
-          <Heading fit size={1} textColor="secondary">JavaScript fatigue</Heading>
+          <Heading fit size={1} textColor="white">JavaScript fatigue</Heading>
         </Slide>
         <Slide align="center flex-end" bgImage={images.scullyEyeroll}>
           <Heading fit size={2} textColor="white">...JavaScript fatigue??</Heading>
         </Slide>
-        <Slide bgColor="primary" transition={["slide"]}>
-          <Heading size={1} textColor="secondary">✨ new ✨ language features</Heading>
+        <Slide>
+          <Heading size={1}>✨ new ✨ language features</Heading>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading size={2} textSize="4rem">`const` vs. `let`</Heading>
+        {/* TODO: resume re-theming here */}
+        <Slide>
+          <Heading size={2} textColor="tertiary" textSize="4rem">`const` vs. `let`</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/const_vs_let.example")}
             textSize="1.05em"
           />
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading size={2} textSize="4rem">computed property names</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary" textSize="4rem">computed property names</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/computed_property_names.example")}
             textSize="1.05em"
           />
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading size={2} textSize="4rem">fat arrow functions</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary" textSize="4rem">fat arrow functions</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/fat_arrow_fns.example")}
             textSize="1.05em"
           />
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading size={2} textSize="4rem">destructuring assignment</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary" textSize="4rem">destructuring assignment</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/destructuring.example")}
             textSize="1.05em"
           />
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Image src={images.es6Features}/>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Image src={images.longList} height={IMG_HEIGHT}/>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Text fit lineHeight={2} textColor="secondary">JavaScript itself is changing...</Text>
-          <Text fit textColor="secondary">🛠️ and the tools are changing too 🛠️</Text>
+        <Slide>
+          <Heading fit size={1}>JavaScript itself</Heading>
+          <Heading size={2} textColor="tertiary">is changing...</Heading>
+          <Heading fit size={3} textColor="secondary">🛠️ and the tools are changing too 🛠️</Heading>
         </Slide>
-        <Slide bgColor="tertiary">
+        <Slide>
           <Image src={images.babel} width={900}/>
         </Slide>
-        <Slide bgColor="tertiary">
+        <Slide>
           <svg width="750" height="379.7176909649" viewBox="0 0 498.39 252.33">
             <title>Flow logo</title>
             <g>
@@ -298,28 +293,22 @@ export default class Presentation extends React.Component {
               <path fill="#ffcf39" opacity=".9" d="M125 58.57l83.09 83.09H125z" />
               <path fill="#ffc737" opacity=".7" d="M101.47 252L0 150.51h101.47V252z" />
             </g>
-            <path fill="#eee" d="M311.18 108.38h19.55v4.78h-19.55v50.77h-5.55v-50.77h-11.12v-4.78h11.11v-9.33q0-7.78 4.33-12.28t12.22-4.5q6 0 9 3l-1.56 4.44a10.21 10.21 0 0 0-7-2.44q-5.44 0-8.44 3.17t-3 9.17zm31.11 42.1q0 5.11 1.61 7.22t5.39 2.11a15.55 15.55 0 0 0 7.33-1.56l-.78 5.33a17.29 17.29 0 0 1-7.33 1.44q-6 0-8.89-3.39T336.73 151V82.83h5.55zM405.78 115q7.05 7.72 7.06 21.17t-7.05 21.16q-7.07 7.67-19.38 7.67T367 157.32q-7-7.72-7-21.16t7-21.16q7.05-7.7 19.41-7.7t19.37 7.7zm-34.71 3.5q-5.55 6.44-5.55 17.66t5.55 17.66q5.55 6.44 15.33 6.44t15.33-6.44q5.55-6.44 5.55-17.66t-5.55-17.66q-5.56-6.5-15.34-6.5t-15.34 6.46zm127.33-10.09l-19 55.55h-5.58l-17.55-48.55-17.11 48.55h-5.56l-19-55.55h6.22l15.55 49 17.33-49h5.58l17.2 49 15.69-49z" />
+            <path fill="#474747" d="M311.18 108.38h19.55v4.78h-19.55v50.77h-5.55v-50.77h-11.12v-4.78h11.11v-9.33q0-7.78 4.33-12.28t12.22-4.5q6 0 9 3l-1.56 4.44a10.21 10.21 0 0 0-7-2.44q-5.44 0-8.44 3.17t-3 9.17zm31.11 42.1q0 5.11 1.61 7.22t5.39 2.11a15.55 15.55 0 0 0 7.33-1.56l-.78 5.33a17.29 17.29 0 0 1-7.33 1.44q-6 0-8.89-3.39T336.73 151V82.83h5.55zM405.78 115q7.05 7.72 7.06 21.17t-7.05 21.16q-7.07 7.67-19.38 7.67T367 157.32q-7-7.72-7-21.16t7-21.16q7.05-7.7 19.41-7.7t19.37 7.7zm-34.71 3.5q-5.55 6.44-5.55 17.66t5.55 17.66q5.55 6.44 15.33 6.44t15.33-6.44q5.55-6.44 5.55-17.66t-5.55-17.66q-5.56-6.5-15.34-6.5t-15.34 6.46zm127.33-10.09l-19 55.55h-5.58l-17.55-48.55-17.11 48.55h-5.56l-19-55.55h6.22l15.55 49 17.33-49h5.58l17.2 49 15.69-49z" />
           </svg>
         </Slide>
-        <Slide bgColor="tertiary">
+        <Slide>
           <Image src={images.prettier} width={900}/>
         </Slide>
-        <Slide bgColor="primary" transition={["slide"]}>
-          <Code bgColor="rgba(255,255,255,0.625)" padding={25} textColor="quartenary" textSize="4em">{"¯\\_(ツ)_/¯"}</Code>
+        <Slide>
+          <Code bgColor="quartenary" padding={25} textColor="secondary" textSize="4em">{"¯\\_(ツ)_/¯"}</Code>
         </Slide>
-        <Slide transition={["slide"]}>
-          <Heading size={1} textColor="secondary">Meet ELIZA: 👩‍⚕️</Heading>
-            <Layout>
-              <Text textColor="secondary" textSize="4rem">Created: 1964–1966</Text>
-            </Layout>
-            <Layout>
-              <Text textColor="secondary" textSize="4rem">@ MIT AI</Text>
-            </Layout>
-            <Layout>
-              <Text textColor="secondary" textSize="4rem">by Joseph Weizenbaum</Text>
-            </Layout>
+        <Slide>
+          <Heading size={1}>Meet ELIZA: 👩‍⚕️</Heading>
+          <Text textColor="secondary" textSize="4rem">Created: 1964–1966</Text>
+          <Text textColor="secondary" textSize="4rem">@ MIT AI</Text>
+          <Text textColor="secondary" textSize="4rem">by Joseph Weizenbaum</Text>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Terminal
             output={[
               <div key={1} style={{ color: "cyan" }}>deepthought:~ rebel$ node eliza.js</div>,
@@ -364,115 +353,115 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Heading size={3} textColor="secondary">✨ the cure for ✨</Heading>
-          <Heading fit lineHeight={2} size={1} textColor="white">😫 JavaScript fatigue 😫</Heading>
+          <Heading fit lineHeight={2} size={1}>😫 JavaScript fatigue 😫</Heading>
         </Slide>
         <Slide>
           <Heading size={3} textColor="secondary">✨ my cure for ✨</Heading>
-          <Heading fit lineHeight={2} size={1} textColor="white">😫 JavaScript fatigue 😫</Heading>
+          <Heading fit lineHeight={2} size={1}>😫 JavaScript fatigue 😫</Heading>
         </Slide>
-        <Slide transition={["slide"]}>
-          <div style={{ fontSize: "6.75rem", fontWeight: "bold" }}>
+        <Slide>
+          <div style={{ color: "#43467F", fontSize: "6.75rem", fontWeight: "bold" }}>
             <span>play with your </span>
-            <S type="strikethrough" textColor="tertiary">🍱&nbsp;food&nbsp;🍲</S>
+            <S type="strikethrough">🍱&nbsp;food&nbsp;🍲</S>
             <span>&nbsp;</span>
-            <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary" textSize="6.75rem">code</Code>
+            <Code bgColor="quartenary" textColor="secondary" textSize="6.75rem">code</Code>
           </div>
         </Slide>
         <Slide>
-          <Heading fit size={2}>👟 the learning journey 👟</Heading>
+          <Heading fit size={1}>👟 the learning journey 👟</Heading>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Image src={images.mdn} width={900}/>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">
+        <Slide>
+          <Code>
             TODO: desert #1
           </Code>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">
+        <Slide>
+          <Code>
             TODO: desert #2
           </Code>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">
+        <Slide>
+          <Code>
             TODO: desert #3
           </Code>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Heading lineHeight={2} size={1}>😰 😰 😰</Heading>
         </Slide>
         <Slide>
-          <Heading fit size={1} textColor="white">generators</Heading>
+          <Heading fit size={1}>generators</Heading>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading lineHeight={1.25} size={3} textColor="quartenary">(more precisely)</Heading>
-          <Heading lineHeight={1.25} size={2} textColor="secondary">generator functions</Heading>
-          <Heading lineHeight={1.25} size={2} textColor="secondary">vs.</Heading>
-          <Heading lineHeight={1.25} size={2} textColor="secondary">generator( object)s</Heading>
+        <Slide>
+          <Heading lineHeight={1.25} size={3} textColor="secondary">(more precisely)</Heading>
+          <Heading fit lineHeight={1.25} size={2} textColor="tertiary">generator( function)s</Heading>
+          <Heading lineHeight={1.25} size={2} textColor="tertiary">vs.</Heading>
+          <Heading lineHeight={1.25} size={2} textColor="tertiary">generator objects</Heading>
         </Slide>
-        <Slide transition={["slide"]}>
-          <Heading fit size={1} textColor="white">syntax</Heading>
+        <Slide>
+          <Heading fit size={1}>syntax</Heading>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading size={2} textSize="4rem">non-arrow functions</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary" textSize="4rem">non-arrow functions</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/non_arrow_fn.example")}
-            textSize="1.5em"
+            textSize="1.05em"
           />
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Image src={images.yo} width={900}/>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>two things</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary">two things</Heading>
           <Appear>
-            <Text lineHeight={1.25} textSize="5rem" textAlign="left" textColor="white">1) the <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary" textSize="5rem">*</Code></Text>
+            <Text lineHeight={1.25} textColor="secondary" textSize="5rem" textAlign="left">1) the <Code bgColor="quartenary" textColor="secondary" textSize="5rem">*</Code></Text>
           </Appear>
           <Appear>
-            <Text lineHeight={1.25} textSize="5rem" textAlign="left" textColor="white">2) <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary" textSize="5rem">yield</Code></Text>
+            <Text lineHeight={1.25} textColor="secondary" textSize="5rem" textAlign="left">2) <Code bgColor="quartenary" textColor="secondary" textSize="5rem">yield</Code></Text>
           </Appear>
           <Appear>
-            <Text lineHeight={1.25} textSize="5rem" textAlign="left" textColor="white">3) profit! 🤑</Text>
+            <Text lineHeight={1.25} textColor="secondary" textSize="5rem" textAlign="left">3) profit! 🤑</Text>
           </Appear>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>the <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary" textSize="5.88rem">*</Code></Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary">the <Code bgColor="quartenary" textColor="secondary" textSize="5.88rem">*</Code></Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/yo_generator.example")}
-            textSize="1.5em"
+            textSize="1.05em"
           />
           <ReplIt href="https://repl.it/IJuc/latest"/>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>the <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary" textSize="5.88rem">*</Code></Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary">the <Code bgColor="quartenary" textColor="secondary" textSize="5.88rem">*</Code></Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/yo2_generator.example")}
-            textSize="1.5em"
+            textSize="1.05em"
           />
           <ReplIt href="https://repl.it/IJuh/latest"/>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
-          <Heading size={2}>🕵️‍♂️ an anonymous generator fn 🕵️‍♀️</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary">🕵️‍♂️ an anonymous generator fn 🕵️‍♀️</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/anon_generator.example")}
-            textSize="1.25em"
+            textSize="1.05em"
           />
           <ReplIt href="https://repl.it/IJuk/latest"/>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading lineHeight={2} size={2}>and now: <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary" textSize="5.88rem">yield</Code></Heading>
+        <Slide>
+          <Heading lineHeight={2} size={2} textColor="tertiary">and now: <Code bgColor="quartenary" textColor="secondary" textSize="5.88rem">yield</Code></Heading>
           <Appear>
-            <Heading size={3} textColor="white">just a fancy <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary" textSize="4.9rem">return</Code>??</Heading>
+            <Heading size={3} textColor="secondary">just a fancy <Code bgColor="quartenary" textColor="secondary" textSize="4.9rem">return</Code>??</Heading>
           </Appear>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>three things</Heading>
-          <List textColor="white">
+        <Slide>
+          <Heading size={2} textColor="tertiary">three things</Heading>
+          <List>
             <Appear>
               <ListItem>returns a value</ListItem>
             </Appear>
@@ -484,16 +473,16 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>#1: returns a value</Heading>
-          <Heading size={3} textColor="white">(via the iterator protocol)</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary">#1: returns a value</Heading>
+          <Heading size={3} textColor="secondary">(via the iterator protocol)</Heading>
         </Slide>
         <CodeSlide
           lang="js"
           code={require("raw-loader!../assets/code/using_generator.example")}
           ranges={[{
             loc: [0, 0],
-            title: "generator objects are iterators"
+            title: "generator objects: iterators"
           }, {
             loc: [0, 3]
           }, {
@@ -502,8 +491,8 @@ export default class Presentation extends React.Component {
             loc: [4, 5]
           }]}
         />
-        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }}>
-          <Heading size={2}>generator objects are iterators</Heading>
+        <Slide style={{ fontSize: "3rem" }}>
+          <Heading size={2} textColor="tertiary">generator objects are iterators</Heading>
           <Terminal
             output={[
               TERMINAL_PROMPT,
@@ -516,14 +505,14 @@ export default class Presentation extends React.Component {
             showFirstEntry
           />
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>#2: accepts a value</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary">#2: accepts a value</Heading>
         </Slide>
         <Slide>
-          <Heading fit size={1} textColor="white">concurrency</Heading>
-          <Heading size={2}>in JavaScript</Heading>
+          <Heading fit size={1}>concurrency</Heading>
+          <Heading size={2} textColor="tertiary">in JavaScript</Heading>
         </Slide>
-        <Slide bgColor="tertiary">
+        <Slide>
           <Heading fit size={2}>external concurrency</Heading>
           <List>
             <Appear>
@@ -534,7 +523,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide bgColor="tertiary" transition={["slide"]}>
+        <Slide>
           <Layout>
             <Fill style={{ marginRight: "0.5rem" }}>
               <Heading bgColor="white" lineHeight={2} size={3}>worker</Heading>
@@ -566,8 +555,8 @@ export default class Presentation extends React.Component {
             loc: [2, 6]
           }]}
         />
-        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }}>
-          <Heading size={2}>no value given</Heading>
+        <Slide style={{ fontSize: "3rem" }}>
+          <Heading size={2} textColor="tertiary">no value given</Heading>
           <Terminal
             output={[
               TERMINAL_PROMPT,
@@ -581,8 +570,8 @@ export default class Presentation extends React.Component {
           />
           <ReplIt href="https://repl.it/IUte/latest" />
         </Slide>
-        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }}>
-          <Heading size={2}>value given!</Heading>
+        <Slide style={{ fontSize: "3rem" }}>
+          <Heading size={2} textColor="tertiary">value given!</Heading>
           <Terminal
             output={[
               TERMINAL_PROMPT,
@@ -602,10 +591,10 @@ export default class Presentation extends React.Component {
           />
           <ReplIt href="https://repl.it/IVVg/latest" />
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>#3: pauses the generator function</Heading>
+        <Slide>
+          <Heading size={2} textColor="tertiary">#3: pauses the generator function</Heading>
         </Slide>
-        <Slide bgColor="tertiary">
+        <Slide>
           <Image src={images.amazed} width={700}/>
         </Slide>
         <CodeSlide
@@ -620,8 +609,8 @@ export default class Presentation extends React.Component {
             loc: [6, 7]
           }]}
         />
-        <Slide bgColor="tertiary" style={{ fontSize: "3rem" }} transition={["slide"]}>
-          <Heading size={2}>run to completion</Heading>
+        <Slide style={{ fontSize: "3rem" }}>
+          <Heading size={2} textColor="tertiary">run to completion</Heading>
           <Terminal
             output={[
               TERMINAL_PROMPT,
@@ -655,9 +644,9 @@ export default class Presentation extends React.Component {
             loc: [2, 3]
           }]}
         />
-        <Slide bgColor="tertiary">
+        <Slide>
           <Image src={images.troubleTyping} width={850} />
-          <Text lineHeight={1.5} textColor="secondary">A Tom Hanks in the wild trying to type a <Code bgColor="rgba(255,255,255,0.625)" textColor="quartenary">while (true)</Code> loop</Text>
+          <Text lineHeight={1.5} textColor="secondary">A Tom Hanks in the wild trying to type a <Code bgColor="quartenary" textColor="secondary">while (true)</Code> loop</Text>
         </Slide>
         <CodeSlide
           lang="js"
@@ -671,15 +660,15 @@ export default class Presentation extends React.Component {
             loc: [9, 17]
           }]}
         />
-        <Slide bgColor="tertiary">
+        <Slide>
           <ComponentPlayground
             code={require("raw-loader!../assets/code/WhileTrue.playground")}
           />
           <ReplIt href="https://repl.it/IVVu/latest" />
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading size={2}>three things</Heading>
-          <List textColor="white">
+        <Slide>
+          <Heading size={2} textColor="tertiary">three things</Heading>
+          <List>
             <Appear>
               <ListItem>returns a value</ListItem>
             </Appear>
@@ -692,10 +681,10 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide>
-          <Heading size={2}>what are generators good for?</Heading>
+          <Heading size={2} textColor="tertiary">what are generators good for?</Heading>
         </Slide>
-        <Slide bgColor="tertiary">
-          <Heading fit size={2}>a conversation</Heading>
+        <Slide>
+          <Heading fit size={1}>a conversation</Heading>
           <Layout>
             <Fill style={{ marginRight: "0.5rem" }}>
               <Heading bgColor="white" lineHeight={2} size={3}>fn*</Heading>
@@ -725,25 +714,25 @@ export default class Presentation extends React.Component {
             loc: [6, 9]
           }]}
         />
-        <Slide bgColor="tertiary">
+        <Slide>
           <Layout>
             <Fill>
-              <Chat generator={chatterer} />
+              <Chat generator={chatterer} logClassName="chatLog" />
             </Fill>
           </Layout>
           <ReplIt href="https://repl.it/IVXv/latest" />
         </Slide>
         <Slide>
-          <Heading size={2}>coding a chatterbot</Heading>
+          <Heading size={2} textColor="tertiary">coding a chatterbot</Heading>
         </Slide>
         <Slide>
-          <Heading size={2}>what is a conversation?</Heading>
+          <Heading size={2} textColor="tertiary">what is a conversation?</Heading>
         </Slide>
         <Slide>
-          <Heading size={2}>what data structure best <S type="italic">represents</S> a conversation?</Heading>
+          <Heading size={2} textColor="secondary">what data structure best <S textColor="tertiary" type="italic">represents</S> a conversation?</Heading>
         </Slide>
         <Slide>
-          <Heading size={2}>convo === array</Heading>
+          <Heading size={2} textColor="tertiary">convo === array</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/convo_array.example")}
@@ -751,7 +740,7 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
-          <Heading fit size={2}>participation === push</Heading>
+          <Heading fit size={2} textColor="tertiary">participation === push</Heading>
           <CodePane
             lang="js"
             source={require("raw-loader!../assets/code/convo_push.example")}
@@ -769,8 +758,8 @@ export default class Presentation extends React.Component {
             title: "then get & push resp"
           }]}
         />
-        <Slide transition={["slide"]}>
-          <Heading size={1} textColor="secondary">ELIZA: 👩‍⚕️</Heading>
+        <Slide>
+          <Heading size={1}>ELIZA: 👩‍⚕️</Heading>
           <Link href="http://www.masswerk.at/elizabot/" target="_blank">
             <S type="underline">http://www.masswerk.at/elizabot/</S>
           </Link>
@@ -792,9 +781,17 @@ export default class Presentation extends React.Component {
         <Slide>
           <Layout>
             <Fill>
-              <Chat generator={eliza} />
+              <Chat generator={eliza} logClassName="elizaLog" />
             </Fill>
           </Layout>
+        </Slide>
+        <Slide textSize="2.5rem">
+          <Typist className="eliza" cursor={cursor}>Hope you are feeling better! THANK YOU!</Typist>
+          <Appear>
+            <Link href="http://janabeck.com/javascript-therapy/" target="_blank" textColor="tertiary">
+              http://janabeck.com/javascript-therapy/
+            </Link>
+          </Appear>
         </Slide>
       </Deck>
     );
