@@ -61,6 +61,9 @@ const IMG_HEIGHT = 500;
 const images = {
   amazed: require("../assets/img/amazed.gif"),
   babel: require("../assets/img/babel.png"),
+  desert1: require("../assets/img/desert1.jpg"),
+  desert2: require("../assets/img/desert2.jpg"),
+  desert3: require("../assets/img/desert3.jpg"),
   es6Features: require("../assets/img/es6_features.png"),
   gollum: require("../assets/img/gollum.gif"),
   jgl: require("../assets/img/JGL.png"),
@@ -232,7 +235,6 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading size={1}>✨ new ✨ language features</Heading>
         </Slide>
-        {/* TODO: resume re-theming here */}
         <Slide>
           <Heading size={2} textColor="tertiary" textSize="4rem">`const` vs. `let`</Heading>
           <CodePane
@@ -373,20 +375,44 @@ export default class Presentation extends React.Component {
         <Slide>
           <Image src={images.mdn} width={900}/>
         </Slide>
-        <Slide>
-          <Code>
-            TODO: desert #1
-          </Code>
+        <Slide bgImage={images.desert1}>
+          <div style={{ height: "700px" }}>
+            <Link
+              href="https://www.flickr.com/photos/overdozoverdoz/34636242496/in/faves-134718242@N08/"
+              target="_blank"
+              textColor="white"
+              textSize="0.5em"
+              style={{ position: "absolute", bottom: "0.75rem", right: "0" }}
+            >
+            Image by Over Doz (CC BY-NC 2.0)
+            </Link>
+          </div>
         </Slide>
-        <Slide>
-          <Code>
-            TODO: desert #2
-          </Code>
+        <Slide bgImage={images.desert2}>
+          <div style={{ height: "700px" }}>
+            <Link
+              href="https://www.flickr.com/photos/skynoir/15114763723/in/faves-134718242@N08/"
+              target="_blank"
+              textColor="white"
+              textSize="0.5em"
+              style={{ position: "absolute", bottom: "0.75rem", right: "0" }}
+            >
+            Image by Bill Dickinson (CC BY-NC-ND 2.0)
+            </Link>
+          </div>
         </Slide>
-        <Slide>
-          <Code>
-            TODO: desert #3
-          </Code>
+        <Slide bgImage={images.desert3}>
+          <div style={{ height: "700px" }}>
+            <Link
+              href="https://www.flickr.com/photos/39493003@N00/32666530065/in/faves-134718242@N08/"
+              target="_blank"
+              textColor="white"
+              textSize="0.5em"
+              style={{ position: "absolute", bottom: "0.75rem", right: "0" }}
+            >
+            Image by Martine (CC BY-NC 2.0)
+            </Link>
+          </div>
         </Slide>
         <Slide>
           <Heading lineHeight={2} size={1}>😰 😰 😰</Heading>
