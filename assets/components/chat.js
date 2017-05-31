@@ -16,7 +16,8 @@ const form = {
 };
 
 const button = {
-  borderRadius: "0.25rem"
+  borderRadius: "0.25rem",
+  padding: "0.25rem 1rem"
 };
 
 const chatLog = {
@@ -106,7 +107,7 @@ class Chat extends PureComponent {
         <div ref={(chat) => { this.chat = chat; }} style={chatLog}>
           {this.state.convo.map(
             (msg, i) => (
-              <p className="chatLog" key={i} style={chatLine}>{msg}</p>
+              <p className={this.props.logClassName} key={i} style={chatLine}>{msg}</p>
             )
           )}
         </div>
