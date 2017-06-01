@@ -65,7 +65,6 @@ const images = {
   desert1: require("../assets/img/desert1.jpg"),
   desert2: require("../assets/img/desert2.jpg"),
   desert3: require("../assets/img/desert3.jpg"),
-  dexcom: require("../assets/img/dexcom_arm.jpg"),
   es6Features: require("../assets/img/es6_features.png"),
   gollum: require("../assets/img/gollum.gif"),
   jgl: require("../assets/img/JGL.png"),
@@ -106,9 +105,6 @@ export default class Presentation extends React.Component {
           <Heading lineHeight={1.35} size={2} textAlign="left" textColor="tertiary">
             <Link href="https://twitter.com/iPancreas" target="_blank" textColor="secondary"><FaTwitter /></Link>:&nbsp;@iPancreas
           </Heading>
-        </Slide>
-        <Slide bgImage={images.dexcom}>
-          <Heading fit size={1} textColor="secondary">🤖 cyborg, it me 🤖</Heading>
         </Slide>
         <Slide textSize="2.5rem">
           <Heading fit size={1}>slide deck is online!</Heading>
