@@ -5,8 +5,8 @@ import React from "react";
 // Import Spectacle Core tags
 import {
   Appear,
-  // BlockQuote,
-  // Cite,
+  BlockQuote,
+  Cite,
   Code,
   CodePane,
   ComponentPlayground,
@@ -19,7 +19,7 @@ import {
   Link,
   List,
   ListItem,
-  // Quote,
+  Quote,
   S,
   Slide,
   Text
@@ -80,7 +80,7 @@ preloader(images);
 
 const theme = createTheme({
   primary: "cornsilk",
-  secondary: "#2C2F69",
+  secondary: "#15184C",
   tertiary: "#43467F",
   quartenary: "#CECECE"
 }, {
@@ -97,6 +97,12 @@ export default class Presentation extends React.Component {
             JavaScript therapy
           </Heading>
           <Heading size={3} textColor="secondary">(with generators!)</Heading>
+        </Slide>
+        <Slide textSize="2.5rem">
+          <Heading fit size={1}>slide deck is online!</Heading>
+          <Link href="http://janabeck.com/javascript-therapy/" target="_blank" textColor="secondary">
+            http://janabeck.com/javascript-therapy/
+          </Link>
         </Slide>
         <Slide padding={0}>
           <Heading fit size={1}>what I used to do</Heading>
@@ -789,6 +795,35 @@ export default class Presentation extends React.Component {
           <Link href="http://www.masswerk.at/elizabot/" target="_blank">
             <S type="underline">http://www.masswerk.at/elizabot/</S>
           </Link>
+        </Slide>
+        <Slide textColor="secondary">
+          <Text lineHeight="1.35" textAlign="left">
+            "ELIZA performs best when its human correspondent is initially instructed to "talk" to it, via the typewriter[!] of course, just as one would to a psychiatrist."
+          </Text>
+          <Cite textAlign="right">Weizenbaum, 1966</Cite>
+        </Slide>
+        <Slide textColor="secondary">
+          <Text lineHeight="1.35" textAlign="left">
+            "This mode of conversation was chosen because the psychiatric interview is one of the few examples of <S textColor="tertiary" type="italic">categorized dyadic natural language communciation</S> in which one of the participating pair is free to assume the pose of knowing almost nothing of the real world."
+          </Text>
+          <Cite textAlign="right">Weizenbaum, 1966</Cite>
+        </Slide>
+        <Slide>
+          <Heading fit size={1}>Input: "I am very unhappy these days."</Heading>
+          <List>
+            <Appear>
+              <ListItem>MATCH: "I am"</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>REMAINDER: "very unhappy these days."</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>TRANSFORM: "I" ➡️ "you"</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>RECOMPOSE: "How long have you been" + "very unhappy these days" + "?"</ListItem>
+            </Appear>
+          </List>
         </Slide>
         <CodeSlide
           lang="js"
