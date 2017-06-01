@@ -26,6 +26,7 @@ import {
 } from "spectacle";
 import CodeSlide from "spectacle-code-slide";
 import Terminal from "spectacle-terminal";
+import { FaGithub, FaTwitter } from "react-icons/lib/fa";
 import Typist from "react-typist";
 
 import Chat from "../assets/components/chat.js";
@@ -64,6 +65,7 @@ const images = {
   desert1: require("../assets/img/desert1.jpg"),
   desert2: require("../assets/img/desert2.jpg"),
   desert3: require("../assets/img/desert3.jpg"),
+  dexcom: require("../assets/img/dexcom_arm.jpg"),
   es6Features: require("../assets/img/es6_features.png"),
   gollum: require("../assets/img/gollum.gif"),
   jgl: require("../assets/img/JGL.png"),
@@ -72,8 +74,7 @@ const images = {
   prettier: require("../assets/img/prettier.svg"),
   scullyEyeroll: require("../assets/img/scully_eyeroll.gif"),
   tiredPuppy: require("../assets/img/tired_puppy.gif"),
-  troubleTyping: require("../assets/img/trouble_typing.gif"),
-  yo: require("../assets/img/yo.png")
+  troubleTyping: require("../assets/img/trouble_typing.gif")
 };
 
 preloader(images);
@@ -97,6 +98,17 @@ export default class Presentation extends React.Component {
             JavaScript therapy
           </Heading>
           <Heading size={3} textColor="secondary">(with generators!)</Heading>
+        </Slide>
+        <Slide>
+          <Heading lineHeight={1.35} size={2} textAlign="left" textColor="tertiary">
+            <Link href="https://github.com/jebeck" target="_blank"><FaGithub /></Link>+:&nbsp;@jebeck
+          </Heading>
+          <Heading lineHeight={1.35} size={2} textAlign="left" textColor="tertiary">
+            <Link href="https://twitter.com/iPancreas" target="_blank"><FaTwitter /></Link>:&nbsp;@iPancreas
+          </Heading>
+        </Slide>
+        <Slide bgImage={images.dexcom}>
+          <Heading fit size={1} textColor="secondary">🤖 cyborg, it me 🤖</Heading>
         </Slide>
         <Slide textSize="2.5rem">
           <Heading fit size={1}>slide deck is online!</Heading>
@@ -359,6 +371,9 @@ export default class Presentation extends React.Component {
             showFirstEntry
           />
         </Slide>
+        <Slide align="center flex-start" bgImage={images.tiredPuppy}>
+          <Heading fit size={1}>JavaScript fatigue</Heading>
+        </Slide>
         <Slide>
           <Heading size={3} textColor="secondary">✨ the cure for ✨</Heading>
           <Heading fit lineHeight={2} size={1}>😫 JavaScript fatigue 😫</Heading>
@@ -381,7 +396,7 @@ export default class Presentation extends React.Component {
         <Slide>
           <Image src={images.mdn} width={900}/>
         </Slide>
-        <Slide bgImage={images.desert1}>
+        <Slide bgImage={images.desert1} transition={["slide"]}>
           <div style={{ height: "700px" }}>
             <Link
               href="https://www.flickr.com/photos/overdozoverdoz/34636242496/in/faves-134718242@N08/"
@@ -394,7 +409,7 @@ export default class Presentation extends React.Component {
             </Link>
           </div>
         </Slide>
-        <Slide bgImage={images.desert2}>
+        <Slide bgImage={images.desert2} transition={["slide"]}>
           <div style={{ height: "700px" }}>
             <Link
               href="https://www.flickr.com/photos/skynoir/15114763723/in/faves-134718242@N08/"
@@ -407,7 +422,7 @@ export default class Presentation extends React.Component {
             </Link>
           </div>
         </Slide>
-        <Slide bgImage={images.desert3}>
+        <Slide bgImage={images.desert3} transition={["slide"]}>
           <div style={{ height: "700px" }}>
             <Link
               href="https://www.flickr.com/photos/39493003@N00/32666530065/in/faves-134718242@N08/"
@@ -442,9 +457,6 @@ export default class Presentation extends React.Component {
             source={require("raw-loader!../assets/code/non_arrow_fn.example")}
             textSize="1.05em"
           />
-        </Slide>
-        <Slide>
-          <Image src={images.yo} width={900}/>
         </Slide>
         <Slide>
           <Heading size={2} textColor="tertiary">two things</Heading>
@@ -545,7 +557,7 @@ export default class Presentation extends React.Component {
           <Heading size={2} textColor="tertiary">in JavaScript</Heading>
         </Slide>
         <Slide>
-          <Heading fit size={2}>external concurrency</Heading>
+          <Heading fit size={2}>app-level concurrency</Heading>
           <List>
             <Appear>
               <ListItem>AJAX</ListItem>
@@ -574,6 +586,9 @@ export default class Presentation extends React.Component {
               />
             </Fill>
           </Layout>
+        </Slide>
+        <Slide>
+          <Heading fit size={1}>cooperative concurrency</Heading>
         </Slide>
         <CodeSlide
           lang="js"
@@ -716,16 +731,23 @@ export default class Presentation extends React.Component {
           <Heading size={2} textColor="tertiary">what are generators good for?</Heading>
         </Slide>
         <Slide>
+          <Text textSize="5rem"><Code bgColor="quartenary" textColor="secondary" textSize="5rem">async</Code> / <Code bgColor="quartenary" textColor="secondary" textSize="5rem">await</Code></Text>
+        </Slide>
+        <Slide>
           <Heading fit size={1}>a conversation</Heading>
           <Layout>
-            <Fill style={{ marginRight: "0.5rem" }}>
-              <Heading bgColor="white" lineHeight={2} size={3}>fn*</Heading>
-              <Text lineHeight={2} textSize="6rem">👻</Text>
-            </Fill>
-            <Fill style={{ marginLeft: "0.5rem" }}>
-              <Heading bgColor="black" lineHeight={2} size={3} textColor="white">main</Heading>
-              <Text lineHeight={2} textSize="6rem">😎</Text>
-            </Fill>
+            <Appear>
+              <Fill style={{ marginRight: "0.5rem" }}>
+                <Heading bgColor="white" lineHeight={2} size={3}>fn*</Heading>
+                <Text lineHeight={2} textSize="6rem">👻</Text>
+              </Fill>
+            </Appear>
+            <Appear>
+              <Fill style={{ marginLeft: "0.5rem" }}>
+                <Heading bgColor="black" lineHeight={2} size={3} textColor="white">main</Heading>
+                <Text lineHeight={2} textSize="6rem">😎</Text>
+              </Fill>
+            </Appear>
           </Layout>
         </Slide>
         <CodeSlide
@@ -798,6 +820,12 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide textColor="secondary">
           <Text lineHeight="1.35" textAlign="left">
+            "At this writing, the only serious ELIZA scripts which exist are some which cause ELIZA to respond roughly as would certain psychotherapists (Rogerians)."
+          </Text>
+          <Cite textAlign="right">Weizenbaum, 1966</Cite>
+        </Slide>
+        <Slide textColor="secondary">
+          <Text lineHeight="1.35" textAlign="left">
             "ELIZA performs best when its human correspondent is initially instructed to "talk" to it, via the typewriter[!] of course, just as one would to a psychiatrist."
           </Text>
           <Cite textAlign="right">Weizenbaum, 1966</Cite>
@@ -809,22 +837,66 @@ export default class Presentation extends React.Component {
           <Cite textAlign="right">Weizenbaum, 1966</Cite>
         </Slide>
         <Slide>
-          <Heading fit size={1}>Input: "I am very unhappy these days."</Heading>
+          <Heading lineHeight={1.35} size={2} textColor="tertiary"><S type="italic">"categorized dyadic natural language communciation"</S>...??</Heading>
+        </Slide>
+        <Slide>
+          <Heading lineHeight={1.35} size={2} textColor="tertiary"><S type="italic">"type of conversation between two people"</S></Heading>
+        </Slide>
+        <Slide textColor="secondary">
+          <Text lineHeight="1.35" textAlign="left">
+            "If, for example, one were to tell a psychiatrist, 'I went for a long boat ride' and he responded 'Tell me about boats,' one would not assume that he knew nothing about boats, but that he had some purpose in so directing the subsequent conversation."
+          </Text>
+          <Cite textAlign="right">Weizenbaum, 1966</Cite>
+        </Slide>
+        <Slide>
+          <Heading fit size={2} textColor="tertiary">the ELIZA algorithm</Heading>
           <List>
             <Appear>
-              <ListItem>MATCH: "I am"</ListItem>
+              <ListItem>
+                DECOMPOSE
+              </ListItem>
             </Appear>
             <Appear>
-              <ListItem>REMAINDER: "very unhappy these days."</ListItem>
+              <ListItem>
+                TRANSFORM
+              </ListItem>
             </Appear>
             <Appear>
-              <ListItem>TRANSFORM: "I" ➡️ "you"</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>RECOMPOSE: "How long have you been" + "very unhappy these days" + "?"</ListItem>
+              <ListItem>
+                RECOMPOSE
+              </ListItem>
             </Appear>
           </List>
         </Slide>
+        <Slide>
+          <Heading fit size={1}>Input: "It seems that you hate me."</Heading>
+          <List>
+            <Appear>
+              <ListItem>DECOMPOSE: "It seems that" + "you" + "hate" + "me"</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>TRANSFORM: "you" ➡️ "I", "me" ➡️ "you"</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>RECOMPOSE: "What makes you think" + "I" + "hate" + "you" + "?"</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <CodeSlide
+          lang="js"
+          code={require("raw-loader!../assets/code/recomposition_rules.example")}
+          ranges={[{
+            loc: [0, 0],
+            title: "a recomposition rule set"
+          }, {
+            loc: [1, 2],
+            title: "matching template"
+          }, {
+            loc: [2, 8],
+            title: "recompositions"
+          }]}
+          textSize="0.9em"
+        />
         <CodeSlide
           lang="js"
           code={require("raw-loader!../assets/code/eliza_generator.example")}
