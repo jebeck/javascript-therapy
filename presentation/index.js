@@ -101,10 +101,10 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Heading lineHeight={1.35} size={2} textAlign="left" textColor="tertiary">
-            <Link href="https://github.com/jebeck" target="_blank"><FaGithub /></Link>+:&nbsp;@jebeck
+            <Link href="https://github.com/jebeck" target="_blank" textColor="secondary"><FaGithub /></Link>+:&nbsp;@jebeck
           </Heading>
           <Heading lineHeight={1.35} size={2} textAlign="left" textColor="tertiary">
-            <Link href="https://twitter.com/iPancreas" target="_blank"><FaTwitter /></Link>:&nbsp;@iPancreas
+            <Link href="https://twitter.com/iPancreas" target="_blank" textColor="secondary"><FaTwitter /></Link>:&nbsp;@iPancreas
           </Heading>
         </Slide>
         <Slide bgImage={images.dexcom}>
@@ -841,6 +841,12 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Heading lineHeight={1.35} size={2} textColor="tertiary"><S type="italic">"type of conversation between two people"</S></Heading>
+        </Slide>
+        <Slide textColor="secondary">
+          <Text lineHeight="1.35" textAlign="left">
+            "This mode of conversation was chosen because the psychiatric interview is one of the few examples of <S textColor="tertiary" type="italic">a type of conversation between two people</S> in which one of the participating pair is free to assume the pose of knowing almost nothing of the real world."
+          </Text>
+          <Cite textAlign="right">Weizenbaum, 1966</Cite>
         </Slide>
         <Slide textColor="secondary">
           <Text lineHeight="1.35" textAlign="left">
