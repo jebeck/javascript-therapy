@@ -105,10 +105,10 @@ export default class Presentation extends React.Component {
       >
         <Slide>
           <Heading size={1} fit lineHeight={2}>
-            JavaScript therapy
+            Generating therapy
           </Heading>
           <Heading size={3} textColor="secondary">
-            (with generators!)
+            (in JavaScript!)
           </Heading>
         </Slide>
         <Slide>
