@@ -105,10 +105,10 @@ export default class Presentation extends React.Component {
       >
         <Slide>
           <Heading size={1} fit lineHeight={2}>
-            Generating therapy
+            Conversing with ES2015
           </Heading>
-          <Heading size={3} textColor="secondary">
-            (in JavaScript!)
+          <Heading size={1} fit lineHeight={2}>
+            and Generators
           </Heading>
         </Slide>
         <Slide>
@@ -116,11 +116,11 @@ export default class Presentation extends React.Component {
             slide deck is online!
           </Heading>
           <Link
-            href="http://janabeck.com/javascript-therapy/"
+            href="http://janabeck.com/javascript-therapy/fsto2017/"
             target="_blank"
             textColor="secondary"
           >
-            http://janabeck.com/javascript-therapy/
+            http://janabeck.com/javascript-therapy/fsto2017/
           </Link>
           <Heading
             lineHeight={1.35}
@@ -883,13 +883,13 @@ export default class Presentation extends React.Component {
             output={[
               TERMINAL_PROMPT,
               <Typist cursor={cursor} key={1}>
-                const it = yo('Eesti 🇪🇪');
+                const it = yo('Toronto 🍁');
               </Typist>,
               <Typist cursor={cursor} key={2}>
                 console.log(it.next());
               </Typist>,
               <div key={3} style={{ color: "yellow" }}>
-                {"{ value: 'Yo, Eesti 🇪🇪', done: false }"}
+                {"{ value: 'Yo, Toronto 🍁', done: false }"}
               </div>,
               <Typist cursor={cursor} key={4}>
                 console.log(it.next());
@@ -985,13 +985,13 @@ export default class Presentation extends React.Component {
             output={[
               TERMINAL_PROMPT,
               <Typist cursor={cursor} key={1}>
-                const it1 = pb('Eesti 🇪🇪');
+                const it1 = pb('Toronto 🍁');
               </Typist>,
               <Typist cursor={cursor} key={2}>
                 console.log(it1.next().value);
               </Typist>,
               <div key={3} style={{ color: "yellow" }}>
-                Hi, Eesti 🇪🇪!
+                Hi, Toronto 🍁!
               </div>,
               <Typist cursor={cursor} key={4}>
                 console.log(it1.next());
@@ -1012,9 +1012,9 @@ export default class Presentation extends React.Component {
             output={[
               TERMINAL_PROMPT,
               <div key={8}>
-                <div>&gt; const it2 = pb('Eesti 🇪🇪');</div>
+                <div>&gt; const it2 = pb('Toronto 🍁');</div>
                 <div>&gt; console.log(it2.next().value);</div>
-                <div style={{ color: "yellow" }}>Hi, Eesti 🇪🇪!</div>
+                <div style={{ color: "yellow" }}>Hi, Toronto 🍁!</div>
               </div>,
               <Typist cursor={cursor} key={9}>
                 console.log(it2.next('Hi').value);
@@ -1438,11 +1438,11 @@ export default class Presentation extends React.Component {
           </Typist>
           <Appear>
             <Link
-              href="http://janabeck.com/javascript-therapy/"
+              href="http://janabeck.com/javascript-therapy/fsto2017/"
               target="_blank"
               textColor="tertiary"
             >
-              http://janabeck.com/javascript-therapy/
+              http://janabeck.com/javascript-therapy/fsto2017/
             </Link>
           </Appear>
         </Slide>
