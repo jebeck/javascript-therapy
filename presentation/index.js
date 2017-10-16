@@ -1,33 +1,29 @@
 import { Context, Node } from "react-mathjax";
 // Import React
 import React from "react";
-import { FaExternalLink } from "react-icons/lib/fa";
 
 // Import Spectacle Core tags
 import {
   Appear,
-  BlockQuote,
   Cite,
   Code,
   CodePane,
   ComponentPlayground,
   Deck,
   Fill,
-  // Fit,
   Heading,
   Image,
   Layout,
   Link,
   List,
   ListItem,
-  Quote,
   S,
   Slide,
   Text
 } from "spectacle";
 import CodeSlide from "spectacle-code-slide";
 import Terminal from "spectacle-terminal";
-import { FaGithub, FaTwitter } from "react-icons/lib/fa";
+import { FaExternalLink, FaGithub, FaTwitter } from "react-icons/lib/fa";
 import Typist from "react-typist";
 
 import Chat from "../assets/components/chat.js";
@@ -65,14 +61,18 @@ const IMG_HEIGHT = 500;
 const images = {
   amazed: require("../assets/img/amazed.gif"),
   babel: require("../assets/img/babel.png"),
+  cooperative: require("../assets/img/cooperative.png"),
   desert1: require("../assets/img/desert1.jpg"),
   desert2: require("../assets/img/desert2.jpg"),
   desert3: require("../assets/img/desert3.jpg"),
   es6Features: require("../assets/img/es6_features.png"),
   gollum: require("../assets/img/gollum.gif"),
+  jergasonTweet: require("../assets/img/jergasonTweet.png"),
   jgl: require("../assets/img/JGL.png"),
   longList: require("../assets/img/long_list.gif"),
   mdn: require("../assets/img/MDN_generator.png"),
+  parallel: require("../assets/img/parallel.png"),
+  patHeadRubBelly: require("../assets/img/pat-head-rub-belly.gif"),
   prettier: require("../assets/img/prettier.svg"),
   scullyEyeroll: require("../assets/img/scully_eyeroll.gif"),
   tiredPuppy: require("../assets/img/tired_puppy.gif"),
@@ -120,7 +120,7 @@ export default class Presentation extends React.Component {
             target="_blank"
             textColor="secondary"
           >
-            http://janabeck.com/javascript-therapy/fsto2017/
+            janabeck.com/javascript-therapy/fsto2017/
           </Link>
           <Heading
             lineHeight={1.35}
@@ -645,6 +645,9 @@ export default class Presentation extends React.Component {
           </div>
         </Slide>
         <Slide>
+          <Image src={images.jergasonTweet} width="100%" />
+        </Slide>
+        <Slide>
           <Heading fit size={1}>
             👟 the learning journey 👟
           </Heading>
@@ -915,10 +918,39 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide>
-          <Heading fit size={2}>
+          <Heading size={2} textColor="tertiary">
+            what is
+          </Heading>
+          <Heading fit size={1}>
+            concurrency?
+          </Heading>
+        </Slide>
+        <Slide>
+          <Image src={images.patHeadRubBelly} width="80%" />
+        </Slide>
+        <Slide>
+          <Heading>parallel</Heading>
+          <Image src={images.parallel} width="75%" />
+        </Slide>
+        <Slide>
+          <Heading>cooperative</Heading>
+          <Image src={images.cooperative} width="75%" />
+        </Slide>
+        <Slide>
+          <Heading fit>concurrency is...</Heading>
+          <Heading fit>
+            occurring in <S type="underline">overlapping</S> time
+          </Heading>
+        </Slide>
+        <Slide>
+          <Image src={images.parallel} width="50%" />
+          <Image src={images.cooperative} width="50%" />
+        </Slide>
+        <Slide>
+          <Heading fit size={2} textColor="tertiary">
             app-level concurrency
           </Heading>
-          <List>
+          <List textColor="tertiary">
             <Appear>
               <ListItem>AJAX</ListItem>
             </Appear>
@@ -957,9 +989,13 @@ export default class Presentation extends React.Component {
           </Layout>
         </Slide>
         <Slide>
-          <Heading fit size={1}>
-            cooperative concurrency
-          </Heading>
+          <iframe
+            width="700"
+            height="393.75"
+            src="https://www.youtube.com/embed/ZCuYPiUIONs?rel=0&amp;start=891"
+            frameBorder="0"
+            allowFullScreen
+          />
         </Slide>
         <CodeSlide
           lang="js"
@@ -1442,7 +1478,7 @@ export default class Presentation extends React.Component {
               target="_blank"
               textColor="tertiary"
             >
-              http://janabeck.com/javascript-therapy/fsto2017/
+              janabeck.com/javascript-therapy/fsto2017/
             </Link>
           </Appear>
         </Slide>
